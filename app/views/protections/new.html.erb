@@ -1,8 +1,9 @@
+<%= render "shared/header" %>
   <div class="cat-protection-main">
     <h2 class="cat-protection-title">猫の情報を入力</h2>
     <%= form_with model: @protection, local: true do |f| %>
 
-    <%#= render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
 
     <%# 猫画像 %>
     <div class="img-upload">
@@ -24,7 +25,7 @@
         猫の特徴
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :name, class:"cats-text", id:"item-name", placeholder:"猫の特徴（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :title, class:"cats-text", id:"cat-name", placeholder:"猫の特徴（必須 40文字まで)", maxlength:"40" %>
     </div>
     <%# /猫の特徴 %>
 
@@ -33,7 +34,7 @@
       <div class="form">
       <div class="weight-bold-text">猫の詳細</div>
         <div class="weight-bold-text">
-          年齢
+          年齢（推定）
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_field :age, class:"age-input", id:"item-price", placeholder:"例）3" %>
@@ -51,14 +52,14 @@
           性格
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :description, class:"cats-text", id:"cat-info", placeholder:"性格について（必須 1,000文字まで）人慣れができており、とても甘えん坊です。" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :character, class:"cats-text", id:"cat-info", placeholder:"性格について（必須 1,000文字まで）人慣れができており、とても甘えん坊です。" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <%# /猫の詳細 %>
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "出品する" ,class:"sell-btn" %>
+      <%= f.submit "公開する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>

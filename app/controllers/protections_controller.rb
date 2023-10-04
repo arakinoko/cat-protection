@@ -5,10 +5,11 @@ class ProtectionsController < ApplicationController
   end
 
   def new
-    @protection =Protection.new
+    @protection = Protection.new
   end
 
   def create
+    @protection = Protection.new(protection_params)
     if @protection.save
       redirect_to root_path
     else
@@ -17,8 +18,7 @@ class ProtectionsController < ApplicationController
   end
 
   private
-
-  def article_params
+  def protection_params
     params.require(:protection).permit(:title, :age, :gender_id, :cat_species_id, :character, :image)
   end
 
