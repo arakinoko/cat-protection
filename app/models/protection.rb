@@ -1,5 +1,9 @@
 class Protection < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :user
+  has_one :forster
+
+
   belongs_to :gender
   belongs_to :cat_species
   

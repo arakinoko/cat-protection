@@ -1,0 +1,65 @@
+<%= render "shared/header" %>
+
+
+<div class="cat-show">
+  <div class="cat-box">
+    <h2 class="name">
+      <%= @protection.title %>
+    </h2>
+    <div class="cat-img-content">
+      <%= image_tag @protection.image ,class:"cat-box-img" %>
+    </div>
+
+    <%# if user_signed_in? %>
+      <%# if current_user.id == @protection.user_id && @protection.order.nil? %>
+        <%= link_to "商品の編集", edit_protection_path(@protection.id), method: :get, class: "cat-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", protection_path(@protection.id), method: :delete, class:"cat-destroy" %>
+      <%# elsif @item.order.present? %>
+        <%#= link_to "sold out", root_path %>
+      <%# else %>
+        <%= link_to "購入画面に進む", "#" ,class:"cat-red-btn"%>
+      <%# end %>
+    <%# end %>
+
+
+    <div class="cat-explain-box">
+      <span><%= @protection.title %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-cat">出品者</th>
+          <td class="detail-value"><%= @protection.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-cat">年齢</th>
+          <td class="detail-value"><%= @protection.age %></td>
+        </tr>
+        <tr>
+          <th class="detail-cat">性別</th>
+          <td class="detail-value"><%= @protection.gender.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-cat">種類</th>
+          <td class="detail-value"><%= @protection.cat_species.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-cat">性格・特徴</th>
+          <td class="detail-value"><%= @protection.character %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="option">
+      <div class="favorite-btn">
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+      <div class="report-btn">
+        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+        <span>不適切な商品の通報</span>
+      </div>
+    </div>
+  </div>
+ 
+

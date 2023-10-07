@@ -17,9 +17,19 @@ class ProtectionsController < ApplicationController
     end
   end
 
+  def edit
+    @protection = Protection.find(params[:id])
+  end
+
+  def show
+    @protection = Protection.find(params[:id])
+  end
+
+
+
   private
   def protection_params
-    params.require(:protection).permit(:title, :age, :gender_id, :cat_species_id, :character, :image)
+    params.require(:protection).permit(:title, :age, :gender_id, :cat_species_id, :character, :image).merge(user_id: current_user.id)
   end
 
 end
