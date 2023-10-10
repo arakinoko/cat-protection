@@ -19,6 +19,19 @@ class ProtectionsController < ApplicationController
 
   def edit
     @protection = Protection.find(params[:id])
+    if @protection.user_id == current_user.id
+    else
+      redirect_to root_path
+    end
+  end
+
+  def update
+    protection = Protection.find(params[:id])
+    if protection.update(protection_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def show

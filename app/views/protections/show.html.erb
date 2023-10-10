@@ -10,17 +10,17 @@
       <%= image_tag @protection.image ,class:"cat-box-img" %>
     </div>
 
-    <%# if user_signed_in? %>
-      <%# if current_user.id == @protection.user_id && @protection.order.nil? %>
+    <% if user_signed_in? %>
+      <% if current_user.id == @protection.user_id && @protection.order.nil? %>
         <%= link_to "商品の編集", edit_protection_path(@protection.id), method: :get, class: "cat-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", protection_path(@protection.id), method: :delete, class:"cat-destroy" %>
-      <%# elsif @item.order.present? %>
-        <%#= link_to "sold out", root_path %>
-      <%# else %>
-        <%= link_to "購入画面に進む", "#" ,class:"cat-red-btn"%>
-      <%# end %>
-    <%# end %>
+      <% elsif @item.order.present? %>
+        <%= link_to "里親決定", root_path %>
+      <% else %>
+        <%= link_to "里親希望に進む", "#" ,class:"cat-red-btn"%>
+      <% end %>
+    <% end %>
 
 
     <div class="cat-explain-box">
