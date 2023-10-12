@@ -1,0 +1,4 @@
+.protection-img {
+  max-width: 100%; /* 画像の最大幅を親要素に合わせる */
+  height: auto;    /* 高さを自動調整 */
+}

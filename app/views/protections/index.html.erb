@@ -64,8 +64,10 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <% @protections.each do |protection| %>
         <div class="col">
+          <%= link_to protection_path(protection) do %>
           <div class="card shadow-sm">
-          <%= image_tag protection.image %>
+          <%= image_tag protection.image, class: "protection-img" %>
+          <% end %>
 
             <div class="card-body">
               <p class="card-text"><%= protection.title %></p>

@@ -11,11 +11,11 @@
     </div>
 
     <% if user_signed_in? %>
-      <% if current_user.id == @protection.user_id && @protection.order.nil? %>
-        <%= link_to "商品の編集", edit_protection_path(@protection.id), method: :get, class: "cat-red-btn" %>
+      <% if current_user.id == @protection.user_id #&& @protection.order.nil? %>
+        <%= link_to "商品の編集", edit_protection_path(@protection), method: :get, class: "cat-red-btn" %>
         <p class="or-text">or</p>
-        <%= link_to "削除", protection_path(@protection.id), method: :delete, class:"cat-destroy" %>
-      <% elsif @item.order.present? %>
+        <%= link_to "削除", protection_path(@protection), method: :delete, class:"cat-destroy" %>
+      <% elsif @protection.forster.present? %>
         <%= link_to "里親決定", root_path %>
       <% else %>
         <%= link_to "里親希望に進む", "#" ,class:"cat-red-btn"%>
