@@ -19,4 +19,8 @@ class User < ApplicationRecord
             format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters.', allow_blank: true }
   validates :birth_date
   end
+  
+  validates :password,
+  format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze, message: 'Include both letters and numbers',
+            allow_blank: true }
 end
