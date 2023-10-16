@@ -15,10 +15,10 @@
         <%= link_to "商品の編集", edit_protection_path(@protection), method: :get, class: "cat-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", protection_path(@protection), method: :delete, class:"cat-destroy" %>
-      <% elsif @protection.forster.present? %>
-        <%= link_to "里親決定", root_path %>
+      <%# elsif @protection.forster.present? %>
+        <%#= link_to "里親決定", root_path ,class:"cat-red-btn" %>
       <% else %>
-        <%= link_to "里親希望に進む", "#" ,class:"cat-red-btn"%>
+        <%= link_to "里親希望", "#" ,class:"cat-red-btn"%>
       <% end %>
     <% end %>
 

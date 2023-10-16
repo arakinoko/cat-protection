@@ -77,7 +77,9 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <%= link_to 'View', protection_path(protection.id), class:'btn btn-sm btn-outline-secondary' %>
+                  <% if current_user && current_user.id == protection.user_id %>
                   <%= link_to 'Edit', edit_protection_path(protection.id), class:'btn btn-sm btn-outline-secondary'%>
+                  <% end %>
                 </div>
                 <small class="text-muted">9 mins</small>
               </div>
