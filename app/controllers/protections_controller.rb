@@ -52,7 +52,7 @@ class ProtectionsController < ApplicationController
   end
 
   def protection_params
-    params.require(:protection).permit(:title, :age, :gender_id, :cat_species_id, :character, :image).merge(user_id: current_user.id)
+    params.require(:protection).permit(:title, :prefecture_id, :age, :gender_id, :cat_species_id, :character, :image).merge(user_id: current_user.id)
   end
 
 end

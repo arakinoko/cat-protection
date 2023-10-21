@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2023_10_02_110528) do
 
   create_table "protections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "title", null: false
+    t.integer "prefecture_id", null: false
     t.integer "age", null: false
     t.integer "gender_id", null: false
     t.integer "cat_species_id", null: false

@@ -34,6 +34,11 @@
       <div class="form">
       <div class="weight-bold-text">猫の詳細</div>
         <div class="weight-bold-text">
+          現在所在地
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"protection-prefecture"}) %>
+        <div class="weight-bold-text">
           年齢（推定）
           <span class="indispensable">必須</span>
         </div>
@@ -59,7 +64,7 @@
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "公開する" ,class:"sell-btn" %>
+      <%= f.submit "掲載する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>

@@ -12,7 +12,7 @@
 
     <% if user_signed_in? %>
       <% if current_user.id == @protection.user_id #&& @protection.order.nil? %>
-        <%= link_to "商品の編集", edit_protection_path(@protection), method: :get, class: "cat-red-btn" %>
+        <%= link_to "保護猫の編集", edit_protection_path(@protection), method: :get, class: "cat-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", protection_path(@protection), method: :delete, class:"cat-destroy" %>
       <%# elsif @protection.forster.present? %>
@@ -29,8 +29,12 @@
     <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-cat">出品者</th>
+          <th class="detail-cat">掲載者</th>
           <td class="detail-value"><%= @protection.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-cat">現在所在地</th>
+          <td class="detail-value"><%= @protection.prefecture.name %></td>
         </tr>
         <tr>
           <th class="detail-cat">年齢</th>
