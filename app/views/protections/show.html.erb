@@ -18,7 +18,7 @@
       <%# elsif @protection.forster.present? %>
         <%#= link_to "里親決定", root_path ,class:"cat-red-btn" %>
       <% else %>
-        <%= link_to "里親希望", "#" ,class:"cat-red-btn"%>
+        <%= link_to "里親希望", protection_fosters_path(@protection) ,class:"cat-red-btn"%>
       <% end %>
     <% end %>
 

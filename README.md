@@ -72,7 +72,7 @@ https://docs.google.com/spreadsheets/d/1sUZuY5qie7rA0r0v0-q4od1Cphyb2-sJ6LNnESpK
 | birth_date         | date   | null: false               |
 
 has_many :protections
-has_many :forsters
+has_many :fosters
  
 
 
@@ -86,9 +86,9 @@ has_many :forsters
 | block              | string     | null: false                    |
 | building           | string     |                                |
 | phone_number       | string     | null: false                    |
-| forster            | references | null: false, foreign_key: true |
+| foster             | references | null: false, foreign_key: true |
 
-belongs_to :forster
+belongs_to :foster
 
 ## protections テーブル
 
@@ -101,13 +101,13 @@ belongs_to :forster
 | character        | text       | null: false                    |
 | user             | references | null: false, foreign_key: true |
 
+has_many :fosters
 belongs_to :user 
-has_one :forster
 belongs_to :gender
 belongs_to :cat_species
 
 
-## forsters テーブル
+## fosters テーブル
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |

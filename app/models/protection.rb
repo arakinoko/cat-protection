@@ -1,8 +1,9 @@
 class Protection < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :user
-  has_one :forster
 
+  has_many :foster_protections
+  has_many :fosters, through: :foster_protections
+  belongs_to :user
 
   belongs_to :prefecture
   belongs_to :gender

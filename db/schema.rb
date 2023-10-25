@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_02_110528) do
+ActiveRecord::Schema.define(version: 2023_10_21_061642) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,37 @@ ActiveRecord::Schema.define(version: 2023_10_02_110528) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_code", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "block", null: false
+    t.string "building_name"
+    t.string "phone_number", null: false
+    t.bigint "foster_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["foster_id"], name: "index_addresses_on_foster_id"
+  end
+
+  create_table "foster_protections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "protection_id", null: false
+    t.bigint "foster_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["foster_id"], name: "index_foster_protections_on_foster_id"
+    t.index ["protection_id"], name: "index_foster_protections_on_protection_id"
+  end
+
+  create_table "fosters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "protection_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["protection_id"], name: "index_fosters_on_protection_id"
+    t.index ["user_id"], name: "index_fosters_on_user_id"
   end
 
   create_table "protections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -65,5 +96,7 @@ ActiveRecord::Schema.define(version: 2023_10_02_110528) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "foster_protections", "fosters"
+  add_foreign_key "foster_protections", "protections"
   add_foreign_key "protections", "users"
 end
