@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :protections do
     resources :fosters, only: [:index, :create]
   end
+  resources :users, only: :show
 end

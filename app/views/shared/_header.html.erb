@@ -83,11 +83,11 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><%= link_to 'HOME', '/', class:"nav-link px-2 text-white" %>
-          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+          <%= link_to 'HOME', '/', class:"nav-link px-2 text-white" %>
+          <%#= link_to 'Features', '#', class:"nav-link px-2 text-white" %>
+          <%#= link_to 'Pricing', '#', class:"nav-link px-2 text-white" %>
+          <%#= link_to 'FAQs', '#', class:"nav-link px-2 text-white" %>
+          <%#= link_to 'About', '#', class:"nav-link px-2 text-white" %>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -97,7 +97,7 @@
         
         <div class="text-end">
         <% if user_signed_in? %>
-          <%= link_to 'マイページ', "#", class:'btn btn-outline-light me-2' %>
+          <%= link_to 'マイページ',  "/users/#{current_user.id}", class:'btn btn-outline-light me-2' %>
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-warning"  %>
         <% else %>
           <%= link_to 'ログイン', new_user_session_path, class: "btn btn-outline-light me-2" %>

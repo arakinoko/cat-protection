@@ -1,0 +1,28 @@
+<%= render "shared/header" %>
+
+<div class="contents-row">
+  <p><%= @nickname %>さんの保護猫一覧</p>
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <% @protections.each do |protection| %>
+        <div class="col">
+          <%= link_to protection_path(protection) do %>
+          <div class="card shadow-sm">
+          <%= image_tag protection.image, class: "protection-img" %>
+          <% end %>
+
+            <div class="card-body">
+              <p class="card-text"><%= protection.title %></p>
+              <%= protection.age %>歳<br>
+              <%= protection.gender.name %><br>
+              <%= protection.cat_species.name %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        
+      </div>
+    </div>
+  </div>
